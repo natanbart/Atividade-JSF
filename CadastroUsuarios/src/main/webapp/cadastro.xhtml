@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <link rel="stylesheet" type="text/css" href="css/main.css" />
+      
+<h:head>
+    <title>Cadastro de Usuário</title>
+    </h:head>
+
+<h:body>
+    <h:form>
+    <h:panelGroup layout="block" styleClass="linha-formulario">
+        <h:outputLabel for="nome" value="Nome:" />
+        <h:inputText id="nome" value="#{pessoa.nome}" styleClass="campo-nome" />
+        <h:commandButton value="Salvar" action="#{pessoa.salvar}" styleClass="botao-salvar" />
+    </h:panelGroup>
+    </h:form>
+
+    <h:panelGroup rendered="#{not empty pessoa.nomes}">
+        <h2>Nomes cadastrados:</h2>
+        <h:dataTable value="#{pessoa.nomes}" var="nome">
+            <h:column>
+                <h:outputText value="#{nome}" />
+            </h:column>
+        </h:dataTable>
+    </h:panelGroup>
+</h:body>
+</html>
